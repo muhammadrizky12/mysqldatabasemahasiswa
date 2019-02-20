@@ -1,0 +1,71 @@
+1. Membuat Database
+2. Membuat Table
+
+create table mahasiswa
+(nim char (15) not null,
+nama varchar (50) not null,
+alamatjalan varchar (50) not null,
+kota varchar (50) not null,
+hp varchar (20) not null,
+jeniskelamin varchar (15) not null,
+tanggallahir date not null,
+kodedosen char (15) not null)
+
+3. Memasukan isi data table
+
+insert into mahasiswa
+(nim , nama ,alamatjalan, kota , hp, jeniskelamin, tanggallahir,kodedosen)
+values
+("11223344","Ari Santoso"," ","Bekasi", " ", "Laki-laki","1998-10-12"," "),
+("11223345","Ario Talib"," ","Cikarang", " ", "Laki-laki","1999-11-16"," "),
+("11223346","Dina Marina"," ","Karawang", " ", "Perempuan","1997-12-01"," "),
+("11223347","Lisa Ayu"," ","Bekasi"," ", "Perempuan","1996-01-02"," "),
+("11223348","Tiara Wahidah"," ","Bekasi", " ", "Perempuan","1980-02-05"," "),
+("11223349","Anton Sinaga"," ","Cikarang", " ", "Laki-laki","1988-03-10"," ")
+
+2. Tampilkan isi Record
+
+select * from mahasiswa
+
+
+3. Mengubah data tanggal lahir yang bernama " Ari Santoso " menjadi : 1979-08-31
+
+update mahasiswa set tanggallahir = "1979-08-31" where nim = "11223344"
+
+4. tampilkan satu baris /record data yang telah di ubah tadi yaitu record dengan nama ari saja
+
+
+select * from mahasiswa where nim =" 11223344"
+
+
+5. Hapus mahasiswa yang bernama Dina 
+
+delete from mahasiswa where nim = "11223346"
+
+6. Tampilkan Record atau Data yang tanggal lahirnya lebih dari atau sama dengan 1996-1-2
+
+select* from mahasiswa 
+where tanggallahir >= "1996-01-02"
+
+7. Tampilkan semua Mahasiswa yang berasal dari Bekasi dan Berjenis Kelamin Perempuan
+
+select * from mahasiswa
+where kota = "Bekasi "
+and jeniskelamin = "Perempuan"
+
+8. Tampilkan semuha mahasiswa yang berasal dari bekasi dengan jenis kelamin laki laki 
+atau mahasiswa yang berumur lebih dari 22 tahun dengan kelamin wanita
+
+select * from mahasiswa 
+where kota = "Bekasi" and jeniskelamin = "Laki-laki"
+or tanggallahir <= "1997" and jeniskelamin = "Perempuan";
+
+
+9. Tampilkan data nama dan alamat mahasiswa saja dari tabel tersebut
+
+select nama , alamatjalan from mahasiswa
+
+10. Tampilkan Data Mahasiswa terurut berdasarkan nama 
+
+select * from mahasiswa
+order by nama asc
